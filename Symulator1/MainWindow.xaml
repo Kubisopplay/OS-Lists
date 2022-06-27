@@ -1,0 +1,39 @@
+﻿<Window x:Class="Symulator1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Symulator1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <TabControl>
+        <TabItem Header="Cpusim">
+        <Grid >
+        <ListView x:Name="Wyniki" HorizontalAlignment="Left" Height="400" Margin="25,10,0,0" VerticalAlignment="Top" Width="401" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="names" Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn x:Name="maxg"  Header="Max" DisplayMemberBinding="{Binding Path=Max}"/>
+                    <GridViewColumn x:Name="avg"  Header="Avg" DisplayMemberBinding="{Binding Path=Avg}"/>
+                    <GridViewColumn x:Name="ming"  Header="Min" DisplayMemberBinding="{Binding Path=Min}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="CLICKME" HorizontalAlignment="Left" Margin="447,10,0,0" VerticalAlignment="Top" Width="100" Height="57" Click="Button_Click"/>
+        <TextBox x:Name="seedbox" HorizontalAlignment="Left" Height="27" Margin="563,10,0,0" TextWrapping="Wrap" Text="2137" VerticalAlignment="Top" Width="145" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Set seed and regenerate" HorizontalAlignment="Left" Height="25" Margin="563,42,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click_1"/>
+        <TextBox x:Name="Quant" HorizontalAlignment="Left" Height="42" Margin="638,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Text="5"/>
+        <Label Content="Quant(RR)" HorizontalAlignment="Left" Height="42" Margin="563,92,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button Content="Batch test" HorizontalAlignment="Left" Height="48" Margin="447,86,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_2"/>
+        <TextBox x:Name="ProcNum" HorizontalAlignment="Left" Height="42" Margin="638,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Text="50" TextChanged="ProcNum_TextChanged"/>
+        <Label Content="Process&#xD;&#xA;Number" HorizontalAlignment="Left" Height="42" Margin="563,148,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="MaxRand" HorizontalAlignment="Left" Height="42" Margin="638,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Text="100" TextChanged="Quant_Copy1_TextChanged"/>
+        <Label Content="Max&#xD;&#xA;Random&#xD;&#xA;" HorizontalAlignment="Left" Height="42" Margin="563,210,0,0" VerticalAlignment="Top" Width="70"/>
+            </Grid>
+        </TabItem>
+        
+            
+        
+    </TabControl>
+    
+</Window>

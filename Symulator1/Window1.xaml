@@ -1,0 +1,59 @@
+﻿<Window x:Class="Symulator1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Symulator1"
+
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <TabControl SelectionChanged="TabControl_SelectionChanged">
+        <TabItem Header="hddsim">
+            <Grid>
+                <ListView x:Name="Wyniki" HorizontalAlignment="Left" Height="372" Margin="25,10,0,0" VerticalAlignment="Top" Width="398" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn x:Name="names" Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn x:Name="Head"  Header="Head movement" DisplayMemberBinding="{Binding Path=Value}"/>
+                            <GridViewColumn x:Name="Drops"  Header="Dropped tasks" DisplayMemberBinding="{Binding Path=Dropped}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="Consider yourself aggresively invited to click me" HorizontalAlignment="Left" Height="25" Margin="464,22,0,0" VerticalAlignment="Top" Width="282" Click="Button_Click"/>
+                <Label Content="Disk Width" HorizontalAlignment="Left" Height="27" Margin="464,63,0,0" VerticalAlignment="Top" Width="117"/>
+                <TextBox x:Name="DiskWidth" HorizontalAlignment="Left" Height="17" Margin="464,90,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="117" TextChanged="DiskWidth_TextChanged"/>
+                <Button x:Name="tenrun" Content="10 x run" HorizontalAlignment="Left" Height="25" Margin="464,171,0,0" VerticalAlignment="Top" Width="282" Click="Button2_Click"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="RNG settings">
+            <TabControl>
+                <TabItem Header="Miejsce na dysku">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56*"/>
+                            <ColumnDefinition Width="164*"/>
+                            <ColumnDefinition Width="563*"/>
+                        </Grid.ColumnDefinitions>
+                        <local:RngControl x:Name="rng_cylinder" Margin="55,25,320.4,49" Grid.ColumnSpan="3"/>
+                        <Label Content="Number of requests" HorizontalAlignment="Left" Height="26" Margin="298.409,67,0,0" VerticalAlignment="Top" Width="124" Grid.Column="2"/>
+                        <TextBox x:Name="process_amount" HorizontalAlignment="Left" Height="42" Margin="298.409,98,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="124" Grid.Column="2" TextChanged="process_amount_TextChanged"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="czas wejscia">
+                    <local:RngControl x:Name="rng_entry" Margin="55,25,320.4,49"/>
+                </TabItem>
+                <TabItem Header="Deadline" Margin="-1.8,-2,-36.2,0">
+                    <Grid>
+                        <local:RngControl x:Name="deadline" Margin="10,10,316.4,-10"/>
+                        <Label Content="percentage of realtime" HorizontalAlignment="Left" Height="26" Margin="517.644,67,0,0" VerticalAlignment="Top" Width="124"/>
+                        <TextBox x:Name="realtime" HorizontalAlignment="Left" Height="42" Margin="517.644,98,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="124" TextChanged="realtime_TextChanged"/>
+
+                    </Grid>
+                </TabItem>
+
+
+
+            </TabControl>
+        </TabItem>
+    </TabControl>
+</Window>
